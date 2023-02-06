@@ -1,0 +1,35 @@
+<%- include("template/cabecera",{tituloWeb: 'Página inicial'})%>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% if (arrayEntrenador.length>0) { %>
+                <% arrayEntrenador.forEach(entrenador => { %>
+                    <tr>
+                        <th scope="row"><%= entrenador.id %> </th>
+                        <td><%= entrenador.nombre %></td>
+                        <td><%= entrenador.apellidos %></td>
+                        <td><%= entrenador.edad %></td>
+                        <td>
+                            <a class="btn btn-warning btn-sm btn-light" href="entrenador/<%= entrenador.id %>">Editar/Eliminar</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } %>
+            
+              
+            </tbody>
+          </table>
+          <a class="btn btn-success btn-block my-4" href="/entrenador/crearEntrenador">Crear un nuevo entrenador</a>
+    </div>
+
+<%- include("template/footer")%>
